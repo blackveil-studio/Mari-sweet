@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mari Sweets — torty i desery na zamówienie · Białystok</title>
+<meta name="description" content="Torty i desery na zamówienie w Białymstoku. Marina piecze i składa każdy tort ręcznie — bez gotowych mieszanek. Torty urodzinowe, ślubne, cupcakes, makaroniki.">
+<!-- TODO: podmień na prawdziwy adres domeny, gdy strona będzie opublikowana -->
+<link rel="canonical" href="https://marisweets.pl/">
+
+<!-- Open Graph / social preview (WhatsApp, Facebook, Instagram) -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:site_name" content="Mari Sweets">
+<meta property="og:title" content="Mari Sweets — torty i desery na zamówienie · Białystok">
+<meta property="og:description" content="Marina piecze i składa każdy tort ręcznie — bez gotowych mieszanek. Skomponuj swój tort marzeń online.">
+<meta property="og:url" content="https://marisweets.pl/">
+<!-- TODO: zamienić na realne zdjęcie 1200x630px, gdy będą gotowe fotografie -->
+<meta property="og:image" content="assets/logo.png">
+
+<!-- Twitter card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mari Sweets — torty i desery na zamówienie · Białystok">
+<meta name="twitter:description" content="Marina piecze i składa każdy tort ręcznie — bez gotowych mieszanek.">
+<meta name="twitter:image" content="assets/logo.png">
+
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Structured data dla Google (lokalna wyszukiwarka / Knowledge Panel) -->
+<!-- TODO: uzupełnić telephone i streetAddress, gdy będą znane -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  "name": "Mari Sweets",
+  "description": "Torty i desery na zamówienie w Białymstoku — pieczone i składane ręcznie, bez gotowych mieszanek.",
+  "image": "https://marisweets.pl/assets/logo.png",
+  "url": "https://marisweets.pl/",
+  "telephone": "+48000000000",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Białystok",
+    "addressCountry": "PL"
+  },
+  "areaServed": "Białystok",
+  "sameAs": [
+    "https://www.instagram.com/marina.sweets_pl/"
+  ]
+}
+</script>
+<style>
+/* ===== BASE / TOKENS ===== */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#FBF2EA;
+  --icing:#FFFFFF;
+  --berry:#A63A52;
+  --berry-deep:#7C2A3F;
+  --berry-soft:#F3C9D2;
+  --pistachio:#93A87E;
+  --pistachio-deep:#6F8459;
+  --cocoa:#3C2A22;
+  --plum:#6E2438;
+  --blush:#EABCC7;
+  --mid:#6B5245;
+  --line:rgba(166,58,82,.16);
+  --pad:clamp(28px,6vw,96px);
+  --radius:22px;
+}
+html{scroll-behavior:smooth}
+:focus-visible{outline:2px solid var(--berry);outline-offset:3px;border-radius:4px}
+.skip-link{position:absolute;top:-100px;left:16px;z-index:200;background:var(--cocoa);color:var(--cream);padding:12px 20px;border-radius:100px;font-size:13px;font-weight:700;transition:top .25s ease}
+.skip-link:focus{top:16px}
+.scroll-progress{position:fixed;top:0;left:0;height:3px;background:var(--berry);z-index:101;width:0%;transform-origin:left}
+
+/* subtle paper-grain texture for a tactile, printed feel */
+body::after{
+  content:'';position:fixed;inset:0;z-index:50;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:.035;mix-blend-mode:multiply
+}
+body{background:var(--cream);color:var(--cocoa);font-family:'Manrope',sans-serif;overflow-x:hidden;font-size:16px;line-height:1.5}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button,select,input,textarea{font-family:inherit}
+h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-.01em}
+.eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--berry);display:flex;align-items:center;gap:12px;margin-bottom:18px;font-weight:600}
+.eyebrow::before{content:'';display:block;width:28px;height:2px;background:var(--berry);border-radius:2px}
+em{font-style:italic;color:var(--berry);font-family:'Fraunces',serif}
+
+/* photo placeholder — заменить на реальные фото Марины (внешние ссылки/файлы, НЕ base64) */
+.ph{position:relative;background:linear-gradient(135deg,var(--berry-soft),var(--cream) 60%,var(--pistachio) 140%);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-photo .ph,.about-imgs .ph{background-size:145% 145%;background-position:50% 50%;will-change:background-position}
+.ph::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 25% 30%, rgba(255,255,255,.5), transparent 45%),radial-gradient(circle at 75% 70%, rgba(124,42,63,.12), transparent 50%)}
+.ph span{position:relative;z-index:1;font-family:'Fraunces',serif;font-style:italic;font-size:13px;color:var(--berry-deep);opacity:.55;text-align:center;padding:12px}
+.ph img{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1}
+
+/* scallop divider — фирменный приём: край "отсаженного крема" между секциями */
+.scallop{height:26px;background-repeat:repeat-x;background-size:26px 26px}
+.scallop-down{background-image:radial-gradient(circle at 13px 0, var(--sc,var(--cream)) 13px, transparent 13.5px)}
+
+/* ===== NAV ===== */
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,242,234,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1440px;margin:0 auto;padding:15px var(--pad);display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-family:'Fraunces',serif;font-size:23px;font-weight:600;letter-spacing:.02em;flex-shrink:0;display:flex;align-items:center;gap:9px}
+.logo em{font-style:italic;font-weight:500}
+.logo-icon{height:64px;width:auto}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{font-size:13px;letter-spacing:.05em;text-transform:uppercase;font-weight:600;color:var(--cocoa);transition:color .3s}
+.nav-links a:hover{color:var(--berry)}
+.nav-right{display:flex;align-items:center;gap:14px}
+.lang-switch{display:flex;gap:2px;background:rgba(60,42,34,.07);padding:3px;border-radius:100px}
+.lang-btn{border:none;background:transparent;padding:6px 12px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:.03em;cursor:pointer;color:var(--mid);transition:all .25s}
+.lang-btn.active{background:var(--berry);color:var(--icing)}
+.nav-cta{background:var(--berry);color:var(--icing);padding:11px 22px;border-radius:100px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:background .3s,transform .15s ease-out;white-space:nowrap}
+.nav-cta:hover{background:var(--berry-deep);transform:translateY(-2px)}
+.burger{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--cocoa)}
+#burger-menu{display:none;position:fixed;inset:0;background:var(--cream);z-index:99;padding:100px 32px 32px;flex-direction:column;gap:24px}
+#burger-menu a{font-family:'Fraunces',serif;font-size:26px;font-style:italic}
+#burger-menu .lang-switch{align-self:flex-start;margin-top:6px}
+#burger-menu .nav-cta{align-self:flex-start;margin-top:10px}
+
+/* ===== HERO ===== */
+#hero{position:relative;display:grid;grid-template-columns:1.05fr 1fr;min-height:600px;align-items:stretch;margin-top:96px}
+.hero-copy{padding:60px var(--pad) 72px;display:flex;flex-direction:column;justify-content:center}
+.hero-h{font-size:clamp(42px,5.4vw,76px);line-height:1.04;font-weight:500;margin-bottom:24px}
+.hero-h .reveal-line{display:inline-block;opacity:0;transform:translateY(28px);animation:heroLineIn .8s cubic-bezier(.22,.9,.3,1) forwards}
+@keyframes heroLineIn{to{opacity:1;transform:translateY(0)}}
+.hero-h em{font-size:1.1em;letter-spacing:-.015em}
+.hero-sub{font-size:17px;font-weight:500;line-height:1.75;color:var(--mid);max-width:460px;margin-bottom:36px}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{background:var(--berry);color:var(--icing);padding:15px 30px;border-radius:100px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:background .3s,transform .15s ease-out;border:1px solid var(--berry)}
+.btn-primary:hover{background:var(--berry-deep);transform:translateY(-2px)}
+.btn-outline{padding:15px 30px;border-radius:100px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--cocoa);transition:border-color .3s,color .3s,transform .15s ease-out}
+.btn-outline:hover{border-color:var(--berry);color:var(--berry)}
+.hero-photo{position:relative;overflow:hidden}
+.hero-photo .ph{position:absolute;inset:0}
+.crumb{position:absolute;border-radius:50%;background:var(--berry-soft);opacity:.7;animation:float 7s ease-in-out infinite}
+.crumb:nth-child(2){background:var(--pistachio);width:14px;height:14px;top:20%;left:70%;animation-delay:-2s}
+.crumb:nth-child(3){background:var(--icing);width:10px;height:10px;top:60%;left:20%;animation-delay:-4s}
+@keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-18px) scale(1.15)}}
+.hero-badge{position:absolute;bottom:0;left:0;background:var(--icing);padding:20px 30px;border-top-right-radius:var(--radius);box-shadow:0 12px 30px rgba(60,42,34,.08)}
+.hero-badge-t{font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:var(--berry)}
+.hero-badge-s{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-top:4px}
+
+/* ===== MARQUEE (под херо) ===== */
+.marquee{overflow:hidden;background:var(--berry)}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-track{display:flex;align-items:center;gap:0;animation:mq 26s linear infinite;white-space:nowrap;width:max-content;padding:15px 0}
+.marquee-item{font-size:12px;line-height:1;letter-spacing:.15em;text-transform:uppercase;color:var(--icing);padding:0 26px;font-weight:600;display:inline-flex;align-items:center}
+.marquee-dot{color:var(--berry-soft);font-size:12px;line-height:1}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ===== ABOUT ===== */
+#about{padding:76px var(--pad);max-width:1440px;margin:0 auto;display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:center}
+.about-imgs{position:relative;height:470px}
+.about-imgs .ph:first-child{position:absolute;top:0;left:0;width:75%;height:82%;border-radius:var(--radius)}
+.about-imgs .ph:last-child{position:absolute;bottom:0;right:0;width:52%;height:56%;border-radius:var(--radius);border:6px solid var(--cream);box-shadow:0 20px 40px rgba(60,42,34,.12)}
+.about-h{font-size:clamp(32px,3.4vw,50px);line-height:1.1;margin-bottom:24px}
+.about-p{font-size:17px;font-weight:500;line-height:1.8;color:var(--mid);margin-bottom:16px;max-width:520px}
+.about-facts{display:flex;gap:0;margin-top:34px;flex-wrap:wrap}
+.fact{padding:16px 28px 16px 0;border-right:1px solid var(--line);margin-right:28px}
+.fact:last-child{border-right:none}
+.fact-t{font-family:'Fraunces',serif;font-style:italic;font-size:16px;color:var(--berry);margin-bottom:4px}
+.fact-l{font-size:12px;color:var(--mid)}
+
+/* ===== MENU / SERVICES ===== */
+#menu{padding:76px var(--pad);max-width:1440px;margin:0 auto}
+.menu-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:42px;flex-wrap:wrap;gap:20px}
+.menu-h{font-size:clamp(32px,3.6vw,52px);line-height:1.08}
+.menu-note{font-size:15px;font-weight:500;color:var(--mid);max-width:290px}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.mc{background:var(--icing);border-radius:var(--radius);overflow:hidden;transition:transform .4s,box-shadow .4s;position:relative}
+.mc:hover{transform:translateY(-6px);box-shadow:0 24px 44px rgba(60,42,34,.12)}
+.mc .ph{aspect-ratio:4/5;transition:transform .6s ease}
+.mc:hover .ph{transform:scale(1.045)}
+.mc-body{padding:18px 20px 22px}
+.mc-name{font-family:'Fraunces',serif;font-size:20px;margin-bottom:6px}
+.mc-desc{font-size:14px;font-weight:500;line-height:1.55;color:var(--mid)}
+.mc-tag{position:absolute;top:14px;left:14px;background:var(--berry);color:var(--icing);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:100px;font-weight:700;z-index:2}
+
+/* ===== CONFIGURATOR ===== */
+#builder{background:var(--blush);padding:80px var(--pad)}
+.builder-inner{max-width:1200px;margin:0 auto}
+.builder-top{text-align:center;margin-bottom:50px}
+.builder-top .eyebrow{justify-content:center;color:var(--berry-deep)}
+.builder-top .eyebrow::before{background:var(--berry-deep)}
+.builder-h{font-size:clamp(32px,3.6vw,50px);color:var(--cocoa)}
+.builder-h em{color:var(--berry)}
+.builder-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.b-step{margin-bottom:32px}
+.b-label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--berry-deep);margin-bottom:14px;font-weight:700}
+.stepper{display:flex;align-items:center;gap:18px}
+.stepper button{width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(60,42,34,.28);background:var(--icing);color:var(--cocoa);font-size:20px;cursor:pointer;transition:all .25s}
+.stepper button:hover{background:var(--berry);border-color:var(--berry);color:var(--icing)}
+.stepper-val{font-family:'Fraunces',serif;font-size:30px;min-width:70px;text-align:center;color:var(--cocoa)}
+.swatches{display:flex;gap:10px;flex-wrap:wrap}
+.swatch{padding:11px 18px;border-radius:100px;border:1.5px solid rgba(60,42,34,.28);font-size:13px;font-weight:600;cursor:pointer;transition:all .25s;background:var(--icing);color:var(--cocoa)}
+.swatch.active,.swatch:hover{background:var(--berry);color:var(--icing);border-color:var(--berry)}
+.style-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.style-opt{border:1.5px solid rgba(60,42,34,.28);border-radius:16px;padding:16px;cursor:pointer;transition:all .25s;background:var(--icing)}
+.style-opt.active,.style-opt:hover{border-color:var(--berry);background:#fff}
+.style-opt-t{font-family:'Fraunces',serif;font-style:italic;font-size:16px;margin-bottom:4px;color:var(--cocoa)}
+.style-opt-s{font-size:13px;font-weight:500;color:var(--mid)}
+.cake-preview{background:var(--icing);border:1px solid rgba(60,42,34,.1);box-shadow:0 20px 44px rgba(60,42,34,.14);border-radius:28px;padding:36px;display:flex;flex-direction:column;align-items:center;gap:22px;position:sticky;top:100px}
+.cake-svg{width:210px;height:210px;transition:transform .4s ease}
+.cake-summary{width:100%}
+.cake-summary-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px;font-weight:500}
+.cake-summary-row span:first-child{color:var(--mid)}
+.cake-summary-row span:last-child{font-family:'Fraunces',serif;font-style:italic;color:var(--berry)}
+.builder-cta{width:100%;background:var(--berry);color:var(--icing);border:none;padding:16px;border-radius:100px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background .3s,transform .15s ease-out}
+.builder-cta:hover{background:#c24a66}
+.builder-cta:active,.swatch:active,.style-opt:active,.stepper button:active{transform:scale(.94)}
+.builder-note{font-size:13px;font-weight:500;color:var(--mid);text-align:center;line-height:1.6}
+
+/* ===== GALLERY ===== */
+#gallery{padding:76px 0 88px}
+.gal-head{padding:0 var(--pad);display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:34px;max-width:1440px;margin-left:auto;margin-right:auto;flex-wrap:wrap;gap:16px}
+.gal-h{font-size:clamp(32px,3.6vw,52px)}
+.gal-link{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;border-bottom:2px solid var(--berry);padding-bottom:4px;color:var(--berry)}
+.gal-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;padding:0 4px}
+.gi{overflow:hidden;position:relative;aspect-ratio:1}
+.gi .ph{width:100%;height:100%;transition:transform .7s ease}
+.gi:hover .ph{transform:scale(1.05)}
+.gi.big{grid-column:span 2;grid-row:span 2}
+.gi{cursor:zoom-in}
+
+/* ===== LIGHTBOX ===== */
+.lightbox{position:fixed;inset:0;z-index:300;background:rgba(30,18,14,.92);display:none;align-items:center;justify-content:center;padding:40px}
+.lightbox.open{display:flex}
+.lightbox-img{max-width:min(92vw,1100px);max-height:86vh;object-fit:contain;border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,.5);opacity:0;transform:scale(.96);transition:opacity .3s ease,transform .3s ease}
+.lightbox.open .lightbox-img{opacity:1;transform:scale(1)}
+.lightbox-close{position:absolute;top:24px;right:28px;background:none;border:none;color:var(--cream);font-size:40px;line-height:1;cursor:pointer;padding:8px;opacity:.85;transition:opacity .2s,transform .2s}
+.lightbox-close:hover{opacity:1;transform:rotate(90deg)}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(251,242,234,.12);border:1px solid rgba(251,242,234,.3);color:var(--cream);width:52px;height:52px;border-radius:50%;font-size:18px;cursor:pointer;transition:background .2s,transform .2s;display:flex;align-items:center;justify-content:center}
+.lightbox-nav:hover{background:rgba(251,242,234,.24);transform:translateY(-50%) scale(1.08)}
+.lightbox-prev{left:20px}
+.lightbox-next{right:20px}
+@media(max-width:640px){
+  .lightbox-nav{width:42px;height:42px;font-size:15px}
+  .lightbox-close{top:14px;right:16px;font-size:32px}
+}
+
+/* ===== STEPS ===== */
+#steps{padding:76px var(--pad);background:var(--icing)}
+.steps-inner{max-width:1200px;margin:0 auto}
+.steps-h{text-align:center;font-size:clamp(32px,3.6vw,50px);margin-bottom:54px}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.step{padding:0 24px;position:relative}
+.step:not(:last-child)::after{content:'';position:absolute;top:22px;right:-4px;width:calc(100% - 44px);height:1px;background:var(--line)}
+.step-n{font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:var(--berry);margin-bottom:18px}
+.step-t{font-family:'Fraunces',serif;font-size:19px;margin-bottom:10px}
+.step-s{font-size:15px;font-weight:500;line-height:1.65;color:var(--mid)}
+
+/* ===== DELIVERY / CONTACT ===== */
+#reach{padding:76px var(--pad);background:var(--berry-soft)}
+.reach-inner{max-width:1440px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px}
+.reach-h{font-size:clamp(30px,3.2vw,46px);margin-bottom:22px}
+.reach-p{font-size:16px;font-weight:500;line-height:1.8;color:var(--berry-deep);margin-bottom:28px;max-width:460px}
+.hour-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(124,42,63,.18);font-size:14px;color:var(--berry-deep)}
+.reach-card{background:var(--icing);border-radius:var(--radius);padding:36px}
+.reach-card h3{font-size:24px;margin-bottom:10px}
+.reach-card p{font-size:15px;font-weight:500;color:var(--mid);margin-bottom:22px}
+.form-row{display:flex;gap:16px;margin-bottom:16px}
+.form-group{flex:1;display:flex;flex-direction:column;gap:6px}
+.form-group label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mid)}
+.form-group input,.form-group select,.form-group textarea{border:none;border-bottom:1px solid var(--line);padding:11px 0;font-size:15px;background:transparent;outline:none;transition:border-color .3s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--berry)}
+.form-submit{margin-top:20px;background:var(--cocoa);color:var(--icing);border:none;padding:15px 30px;border-radius:100px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .3s}
+.form-submit:hover{background:var(--berry)}
+.form-submit:disabled{opacity:.6;cursor:not-allowed}
+.form-fallback-note{margin-top:14px;font-size:13px;font-weight:500;color:var(--berry-deep);line-height:1.6}
+.form-fallback-note a{text-decoration:underline;font-weight:700}
+
+/* ===== FOOTER ===== */
+footer{background:var(--cocoa);color:var(--cream);padding:44px var(--pad);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.f-logo{font-family:'Fraunces',serif;font-size:24px;font-style:italic;display:flex;align-items:center;gap:10px}
+.f-logo-icon{height:68px;width:auto}
+.f-nav{display:flex;gap:26px;flex-wrap:wrap}
+.f-nav a{font-size:13px;color:rgba(251,242,234,.7);transition:color .3s}
+.f-nav a:hover{color:var(--berry-soft)}
+.f-copy{font-size:13px;color:rgba(251,242,234,.4)}
+
+/* ===== STICKY WA ===== */
+.sticky-wa{position:fixed;bottom:26px;right:26px;z-index:90;background:#25D366;color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(37,211,102,.4);animation:pulse 2.4s infinite}
+.sticky-wa::after{content:attr(data-tip);position:absolute;right:70px;top:50%;transform:translateY(-50%) translateX(6px);background:var(--cocoa);color:var(--cream);font-size:12px;font-weight:600;padding:8px 14px;border-radius:100px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+.sticky-wa:hover::after{opacity:1;transform:translateY(-50%) translateX(0)}
+@keyframes pulse{0%,100%{box-shadow:0 10px 26px rgba(37,211,102,.4)}50%{box-shadow:0 10px 26px rgba(37,211,102,.7),0 0 0 8px rgba(37,211,102,.12)}}
+
+/* ===== REVEAL ===== */
+.r{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+.r.visible{opacity:1;transform:translateY(0)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:960px){
+  .nav-links{display:none}
+  .nav-cta{display:none}
+  .burger{display:block}
+  .logo-icon{height:44px}
+  #hero{grid-template-columns:1fr;margin-top:76px}
+  .hero-photo{height:320px;order:-1}
+  #about{grid-template-columns:1fr}
+  .about-imgs{height:360px}
+  .menu-grid{grid-template-columns:repeat(2,1fr)}
+  .builder-grid{grid-template-columns:1fr}
+  .cake-preview{position:static}
+  .gal-grid{grid-template-columns:repeat(3,1fr)}
+  .steps-grid{grid-template-columns:1fr 1fr;row-gap:36px}
+  .step:not(:last-child)::after{display:none}
+  .reach-inner{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .menu-grid{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:repeat(2,1fr)}
+  .form-row{flex-direction:column}
+  .style-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  .crumb,.sticky-wa,.marquee-track{animation:none}
+  .r{transition:none;opacity:1;transform:none}
+  .reveal-line{animation:none!important;opacity:1!important;transform:none!important}
+  .hero-photo .ph,.about-imgs .ph{transform:none!important}
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link" data-i18n="skip_link">Przejdź do treści</a>
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<header>
+  <div class="nav-inner">
+    <a href="#hero" class="logo">Mari<img src="assets/logo.png" alt="Mari Sweets — logo (trzepaczka)" class="logo-icon"><em>Sweets</em></a>
+    <nav class="nav-links">
+      <a href="#about" data-i18n="nav_about">O Marinie</a>
+      <a href="#menu" data-i18n="nav_menu">Menu</a>
+      <a href="#builder" data-i18n="nav_builder">Skomponuj tort</a>
+      <a href="#gallery" data-i18n="nav_gallery">Galeria</a>
+      <a href="#reach" data-i18n="nav_reach">Kontakt</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang-switch">
+        <button class="lang-btn active" data-setlang="pl" onclick="setLang('pl')">PL</button>
+        <button class="lang-btn" data-setlang="ru" onclick="setLang('ru')">RU</button>
+      </div>
+      <a href="https://wa.me/48000000000" target="_blank" class="nav-cta" data-i18n="nav_cta">Zamów</a>
+      <button class="burger" onclick="toggleBurger()" aria-label="Menu">
+        <svg id="burger-icon" width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="burger-menu">
+  <a href="#about" onclick="closeBurger()" data-i18n="nav_about">O Marinie</a>
+  <a href="#menu" onclick="closeBurger()" data-i18n="nav_menu">Menu</a>
+  <a href="#builder" onclick="closeBurger()" data-i18n="nav_builder">Skomponuj tort</a>
+  <a href="#gallery" onclick="closeBurger()" data-i18n="nav_gallery">Galeria</a>
+  <a href="#reach" onclick="closeBurger()" data-i18n="nav_reach">Kontakt</a>
+  <div class="lang-switch">
+    <button class="lang-btn active" data-setlang="pl" onclick="setLang('pl')">PL</button>
+    <button class="lang-btn" data-setlang="ru" onclick="setLang('ru')">RU</button>
+  </div>
+  <a href="https://wa.me/48000000000" target="_blank" class="nav-cta" data-i18n="nav_cta_burger">Zamów na WhatsApp</a>
+</div>
+
+<main id="main">
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-copy">
+    <div class="eyebrow" data-i18n="hero_eyebrow">Domowa cukiernia · Białystok</div>
+    <h1 class="hero-h" data-i18n="hero_h">Torty,<br>które <em>pamięta się</em><br>dłużej niż święto.</h1>
+    <p class="hero-sub" data-i18n="hero_sub">Marina piecze i składa każdy tort ręcznie — bez gotowych mieszanek i półproduktów. Opowiedz o okazji, a razem dobierzemy smak, nadzienie i dekorację.</p>
+    <div class="hero-btns">
+      <a href="#builder" class="btn-primary" data-i18n="hero_btn_primary">Skomponuj swój tort</a>
+      <a href="#gallery" class="btn-outline" data-i18n="hero_btn_outline">Zobacz realizacje</a>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <div class="ph"><img src="assets/hero-photo.jpg" alt="Marina trzyma tort na zamówienie ze świeczką" loading="eager" fetchpriority="high" width="1342" height="1276"></div>
+    <div class="crumb" style="width:20px;height:20px;top:14%;left:16%"></div>
+    <div class="crumb"></div>
+    <div class="crumb"></div>
+    <div class="hero-badge">
+      <div class="hero-badge-t" data-i18n="hero_badge_t">Każdy tort — od zera</div>
+      <div class="hero-badge-s" data-i18n="hero_badge_s">Świeże wypieki na zamówienie</div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track" id="marquee-track"></div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-imgs">
+    <div class="ph r"><img src="assets/about-marina.jpg" alt="Marina, właścicielka Mari Sweets" loading="lazy" width="1200" height="1383"></div>
+    <div class="ph r" style="transition-delay:.1s"><img src="assets/about-cake.jpg" alt="Tarta jogurtowa ze świeżymi jagodami, wykończona gałązką eukaliptusa" loading="lazy" width="686" height="861"></div>
+  </div>
+  <div>
+    <div class="eyebrow r" data-i18n="about_eyebrow">O cukierni</div>
+    <h2 class="about-h r" data-i18n="about_h">Cześć, jestem <em>Marina.</em></h2>
+    <p class="about-p r" data-i18n="about_p1">Piekę torty i desery na zamówienie w Białymstoku. Zaczynałam dla przyjaciół i rodziny jeszcze w Grodnie — dziś co tydzień tworzę torty na urodziny, wesela, powroty ze szpitala i po prostu wtedy, gdy komuś zachce się słodkiego powodu do świętowania.</p>
+    <p class="about-p r" style="transition-delay:.1s" data-i18n="about_p2">Pracuję nad jednym zamówieniem na raz — bez taśmy produkcyjnej. To znaczy, że Twój tort dostanie czas i uwagę, a nie szablon z katalogu.</p>
+    <div class="about-facts r" style="transition-delay:.2s">
+      <div class="fact"><div class="fact-t" data-i18n="about_fact1_t">Od zera</div><div class="fact-l" data-i18n="about_fact1_l">biszkopt i krem w dniu zamówienia</div></div>
+      <div class="fact"><div class="fact-t" data-i18n="about_fact2_t">Pod okazję</div><div class="fact-l" data-i18n="about_fact2_l">smak i dekorację ustalamy razem</div></div>
+      <div class="fact"><div class="fact-t" data-i18n="about_fact3_t">Białystok</div><div class="fact-l" data-i18n="about_fact3_l">odbiór osobisty i dostawa</div></div>
+    </div>
+  </div>
+</section>
+<div class="scallop scallop-down" style="--sc:var(--cream)"></div>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="menu-top">
+    <div>
+      <div class="eyebrow r" data-i18n="menu_eyebrow">Co można zamówić</div>
+      <h2 class="menu-h r" data-i18n="menu_h">Słodka <em>mapa</em> Mari Sweets.</h2>
+    </div>
+    <p class="menu-note r" data-i18n="menu_note">Każda kategoria to baza do indywidualnego zamówienia: zmieniamy rozmiar, smak i dekorację pod Twoją okazję.</p>
+  </div>
+  <div class="menu-grid">
+    <div class="mc r">
+      <div class="mc-tag" data-i18n="menu_tag_hit">Hit</div>
+      <div class="ph"><img src="assets/menu-torty.jpg" alt="Tort na zamówienie w niebieskim kolorze z dekoracją chmur i gwiazd" loading="lazy" width="688" height="771"></div>
+      <div class="mc-body"><div class="mc-name" data-i18n="menu_card1_name">Torty na zamówienie</div><div class="mc-desc" data-i18n="menu_card1_desc">Od dziecięcych po ślubne — z owocami, czekoladowym dripem lub w minimalistycznym stylu naked cake.</div></div>
+    </div>
+    <div class="mc r" style="transition-delay:.05s">
+      <div class="ph"><img src="assets/menu-cupcakes.jpg" alt="Muffinki wielkanocne z pastelową dekoracją" loading="lazy" width="731" height="847"></div>
+      <div class="mc-body"><div class="mc-name" data-i18n="menu_card2_name">Cupcakes</div><div class="mc-desc" data-i18n="menu_card2_desc">W zestawach na przyjęcie lub na co dzień — dobieramy smak i kolor pod motyw przewodni.</div></div>
+    </div>
+    <div class="mc r" style="transition-delay:.1s">
+      <div class="ph"><img src="assets/menu-makaroniki.jpg" alt="Kolorowe makaroniki w pudełku" loading="lazy" width="1000" height="1000"></div>
+      <div class="mc-body"><div class="mc-name" data-i18n="menu_card3_name">Makaroniki</div><div class="mc-desc" data-i18n="menu_card3_desc">Chrupiąca skorupka i delikatne nadzienie — smaki klasyczne i sezonowe.</div></div>
+    </div>
+    <div class="mc r" style="transition-delay:.15s">
+      <div class="ph"><img src="assets/menu-rolada.jpg" alt="Rolada bezowa z truskawkami i wiśniami" loading="lazy" width="483" height="787"></div>
+      <div class="mc-body"><div class="mc-name" data-i18n="menu_card4_name">Rolada bezowa</div><div class="mc-desc" data-i18n="menu_card4_desc">Lekka baza bezowa z kremem i owocami — efektowny deser na stół.</div></div>
+    </div>
+    <div class="mc r" style="transition-delay:.2s">
+      <div class="ph"><img src="assets/menu-trifle.jpg" alt="Trifle czekoladowe z jeżynami i borówkami" loading="lazy" width="937" height="1000"></div>
+      <div class="mc-body"><div class="mc-name" data-i18n="menu_card5_name">Trifle</div><div class="mc-desc" data-i18n="menu_card5_desc">Warstwowe desery w słoiczkach — wygodne przy podawaniu większej grupie.</div></div>
+    </div>
+    <div class="mc r" style="transition-delay:.25s">
+      <div class="ph"><img src="assets/menu-giftbox.jpg" alt="Pudełko prezentowe z asortymentem ciasteczek" loading="lazy" width="486" height="758"></div>
+      <div class="mc-body"><div class="mc-name" data-i18n="menu_card6_name">Pudełka prezentowe</div><div class="mc-desc" data-i18n="menu_card6_desc">Zestaw słodkości w prezencie — na urodziny, Dzień Kobiet albo bez okazji.</div></div>
+    </div>
+  </div>
+</section>
+<div class="scallop scallop-down" style="--sc:var(--blush)"></div>
+
+<!-- BUILDER -->
+<section id="builder">
+  <div class="builder-inner">
+    <div class="builder-top r">
+      <div class="eyebrow" data-i18n="builder_eyebrow">Interaktywny kreator</div>
+      <h2 class="builder-h" data-i18n="builder_h">Skomponuj <em>tort marzeń</em></h2>
+    </div>
+    <div class="builder-grid">
+      <div>
+        <div class="b-step r">
+          <div class="b-label" data-i18n="builder_label_servings">Ile porcji</div>
+          <div class="stepper">
+            <button onclick="changeServings(-2)" aria-label="Mniej">–</button>
+            <div class="stepper-val" id="servings-val">10</div>
+            <button onclick="changeServings(2)" aria-label="Więcej">+</button>
+          </div>
+        </div>
+        <div class="b-step r" style="transition-delay:.05s">
+          <div class="b-label" data-i18n="builder_label_flavor">Smak biszkoptu i kremu</div>
+          <div class="swatches" id="flavor-swatches"></div>
+        </div>
+        <div class="b-step r" style="transition-delay:.1s">
+          <div class="b-label" data-i18n="builder_label_style">Dekoracja</div>
+          <div class="style-grid" id="style-options"></div>
+        </div>
+      </div>
+      <div class="cake-preview">
+        <svg class="cake-svg" viewBox="0 0 200 200" id="cake-svg">
+          <defs>
+            <linearGradient id="cakeVolume" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#fff" stop-opacity=".4"/>
+              <stop offset="45%" stop-color="#fff" stop-opacity="0"/>
+              <stop offset="100%" stop-color="#000" stop-opacity=".16"/>
+            </linearGradient>
+            <radialGradient id="meringueShade" cx="32%" cy="26%" r="78%">
+              <stop offset="0%" stop-color="#FFFFFC"/>
+              <stop offset="70%" stop-color="#F7EBDB"/>
+              <stop offset="100%" stop-color="#DFC2A6"/>
+            </radialGradient>
+            <pattern id="crumbPattern" width="9" height="9" patternUnits="userSpaceOnUse">
+              <rect width="9" height="9" fill="#E8CBA0"/>
+              <circle cx="2" cy="2" r=".7" fill="#C99B65" opacity=".7"/>
+              <circle cx="6.5" cy="4" r=".55" fill="#C99B65" opacity=".6"/>
+              <circle cx="4" cy="7" r=".6" fill="#B8875A" opacity=".6"/>
+              <circle cx="8" cy="8" r=".5" fill="#C99B65" opacity=".5"/>
+            </pattern>
+          </defs>
+
+          <ellipse cx="100" cy="170" rx="70" ry="14" fill="#000" opacity=".15"/>
+
+          <rect x="35" y="120" width="130" height="44" rx="10" fill="#F3C9D2" id="tier1"/>
+          <rect x="35" y="120" width="130" height="44" rx="10" fill="url(#crumbPattern)" opacity="0" id="tier1-crumb"/>
+          <rect x="35" y="120" width="130" height="44" rx="10" fill="url(#cakeVolume)"/>
+          <rect x="35" y="120" width="130" height="44" rx="10" fill="none" stroke="rgba(60,42,34,.18)" stroke-width="1.5"/>
+          <ellipse cx="100" cy="120" rx="65" ry="7" fill="#FBF2EA" id="tier1-top"/>
+          <ellipse cx="78" cy="118" rx="24" ry="3" fill="#fff" opacity=".4"/>
+
+          <rect x="52" y="80" width="96" height="42" rx="10" fill="#FBF2EA" id="tier2"/>
+          <rect x="52" y="80" width="96" height="42" rx="10" fill="url(#crumbPattern)" opacity="0" id="tier2-crumb"/>
+          <rect x="52" y="80" width="96" height="42" rx="10" fill="url(#cakeVolume)"/>
+          <rect x="52" y="80" width="96" height="42" rx="10" fill="none" stroke="rgba(60,42,34,.18)" stroke-width="1.5"/>
+          <ellipse cx="100" cy="80" rx="48" ry="6.5" fill="#F3C9D2" id="tier2-top"/>
+          <ellipse cx="84" cy="78.3" rx="18" ry="2.6" fill="#fff" opacity=".4"/>
+
+          <rect x="70" y="46" width="60" height="36" rx="9" fill="#F3C9D2" id="tier3"/>
+          <rect x="70" y="46" width="60" height="36" rx="9" fill="url(#crumbPattern)" opacity="0" id="tier3-crumb"/>
+          <rect x="70" y="46" width="60" height="36" rx="9" fill="url(#cakeVolume)"/>
+          <rect x="70" y="46" width="60" height="36" rx="9" fill="none" stroke="rgba(60,42,34,.18)" stroke-width="1.5"/>
+          <ellipse cx="100" cy="46" rx="30" ry="6" fill="#FBF2EA" id="tier3-top"/>
+          <ellipse cx="89" cy="44.6" rx="11" ry="2.2" fill="#fff" opacity=".4"/>
+
+          <g id="topping" style="filter:drop-shadow(0 1.5px 2px rgba(60,42,34,.28))"></g>
+        </svg>
+        <div class="cake-summary">
+          <div class="cake-summary-row"><span data-i18n="sum_label_servings">Porcji</span><span id="sum-servings">10</span></div>
+          <div class="cake-summary-row"><span data-i18n="sum_label_flavor">Smak</span><span id="sum-flavor"></span></div>
+          <div class="cake-summary-row"><span data-i18n="sum_label_style">Dekoracja</span><span id="sum-style"></span></div>
+        </div>
+        <a href="#" id="builder-cta" target="_blank" class="builder-cta" data-i18n="builder_cta">Zapytaj o cenę na WhatsApp</a>
+        <p class="builder-note" data-i18n="builder_note">Dokładną cenę i termin ustalamy w rozmowie — zależą od rozmiaru, nadzienia i obłożenia tygodnia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="scallop scallop-down" style="--sc:var(--cream)"></div>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gal-head">
+    <div>
+      <div class="eyebrow r" data-i18n="gallery_eyebrow">Portfolio</div>
+      <h2 class="gal-h r" data-i18n="gallery_h">Ostatnie <em>realizacje.</em></h2>
+    </div>
+    <a href="https://www.instagram.com/marina.sweets_pl/" target="_blank" class="gal-link r" data-i18n="gallery_link">Więcej na Instagramie →</a>
+  </div>
+  <div class="gal-grid" id="gallery-grid">
+    <div class="gi big"><div class="ph"><img src="assets/gallery-big.jpg" alt="Tort w kształcie serca z figami, jagodami i truskawkami w czekoladzie" loading="lazy" width="658" height="783"></div></div>
+    <div class="gi"><div class="ph"><img src="assets/gallery-01.jpg" alt="Elegancki biały tort weselny z suszonymi kwiatami" loading="lazy" width="692" height="797"></div></div>
+    <div class="gi"><div class="ph"><img src="assets/gallery-02.jpg" alt="Pudrowy różowy tort z falbankami i czarną wstążką" loading="lazy" width="485" height="647"></div></div>
+    <div class="gi"><div class="ph"><img src="assets/gallery-03.jpg" alt="Czarny tort ze złotymi akcentami na urodziny" loading="lazy" width="590" height="837"></div></div>
+    <div class="gi"><div class="ph"><img src="assets/gallery-04.jpg" alt="Tort dziecięcy w stylu jednorożca" loading="lazy" width="486" height="731"></div></div>
+    <div class="gi"><div class="ph"><img src="assets/gallery-05.jpg" alt="Tort tematyczny z lodowym efektem z cukru" loading="lazy" width="637" height="828"></div></div>
+    <div class="gi"><div class="ph"><img src="assets/gallery-06.jpg" alt="Pudełko mini tartaletek z karmelem i owocami" loading="lazy" width="677" height="838"></div></div>
+    <div class="gi"><div class="ph"><img src="assets/gallery-07.jpg" alt="Muffinka czekoladowa z opiekaną bezą i nadzieniem jagodowym" loading="lazy" width="652" height="802"></div></div>
+    <div class="gi"><div class="ph"><img src="assets/gallery-08.jpg" alt="Ciastka na patyku oblane czekoladą" loading="lazy" width="685" height="860"></div></div>
+    <div class="gi"><div class="ph"><img src="assets/gallery-09.jpg" alt="Czarny tort ze złotą dekoracją trzymany w dłoniach" loading="lazy" width="625" height="766"></div></div>
+    <div class="gi"><div class="ph"><img src="assets/gallery-10.jpg" alt="Tort miodowy z warstwami i świeżymi owocami leśnymi" loading="lazy" width="681" height="858"></div></div>
+    <div class="gi"><div class="ph"><img src="assets/gallery-11.jpg" alt="Tort marchewkowy na przekroju z figami i żurawiną" loading="lazy" width="688" height="823"></div></div>
+    <div class="gi"><div class="ph"><img src="assets/gallery-12.jpg" alt="Tort cytrynowy z plastrami cytryny i miętą" loading="lazy" width="482" height="767"></div></div>
+    <div class="gi"><div class="ph"><img src="assets/gallery-13.jpg" alt="Nowoczesny tort w odcieniach zieleni ze świeczką" loading="lazy" width="683" height="762"></div></div>
+    <div class="gi"><div class="ph"><img src="assets/gallery-14.jpg" alt="Tort miodowy z jagodami, widok z góry" loading="lazy" width="482" height="816"></div></div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section id="steps">
+  <div class="steps-inner">
+    <h2 class="steps-h r" data-i18n="steps_h">Jak <em>zamówić</em></h2>
+    <div class="steps-grid">
+      <div class="step r"><div class="step-n">01</div><div class="step-t" data-i18n="step1_t">Napisz</div><div class="step-s" data-i18n="step1_s">Na WhatsApp lub Instagram Direct — opisz okazję i termin.</div></div>
+      <div class="step r" style="transition-delay:.05s"><div class="step-n">02</div><div class="step-t" data-i18n="step2_t">Skomponujemy tort</div><div class="step-s" data-i18n="step2_s">Dobierzemy smak, rozmiar i dekorację — możesz zacząć w kreatorze powyżej.</div></div>
+      <div class="step r" style="transition-delay:.1s"><div class="step-n">03</div><div class="step-t" data-i18n="step3_t">Potwierdź zamówienie</div><div class="step-s" data-i18n="step3_s">Ustalimy cenę i termin, wpłacasz zadatek.</div></div>
+      <div class="step r" style="transition-delay:.15s"><div class="step-n">04</div><div class="step-t" data-i18n="step4_t">Odbierz lub otrzymaj</div><div class="step-s" data-i18n="step4_s">Odbiór osobisty w Białymstoku lub dostawa — ustalimy przy zamówieniu.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- REACH -->
+<section id="reach">
+  <div class="reach-inner">
+    <div>
+      <div class="eyebrow r" style="color:var(--berry-deep)" data-i18n="reach_eyebrow">Kontakt</div>
+      <h2 class="reach-h r" data-i18n="reach_h">Omówimy Twój <em>tort?</em></h2>
+      <p class="reach-p r" data-i18n="reach_p">Napisz na WhatsApp lub Instagram — zwykle odpowiadam w ciągu dnia. Zamówienia przyjmuję minimum 3–5 dni wcześniej, na torty ślubne — od 2 tygodni.</p>
+      <div class="hour-row r"><span data-i18n="hour1_l">Przyjmowanie zamówień</span><span data-i18n="hour1_v">Pon – Ndz</span></div>
+      <div class="hour-row r"><span data-i18n="hour2_l">Odbiór osobisty</span><span data-i18n="hour2_v">do ustalenia</span></div>
+      <div class="hour-row r"><span data-i18n="hour3_l">Miasto</span><span data-i18n="hour3_v">Białystok</span></div>
+    </div>
+    <div class="reach-card r">
+      <h3 data-i18n="reach_card_h3">Napisz bezpośrednio</h3>
+      <p data-i18n="reach_card_p">Albo wypełnij formularz — odezwę się z pytaniami o smak i termin.</p>
+      <div class="form-row">
+        <div class="form-group"><label for="f-name" data-i18n="form_label_name">Imię</label><input type="text" id="f-name" name="name" autocomplete="name" data-i18n-ph="form_ph_name" placeholder="Twoje imię"></div>
+        <div class="form-group"><label for="f-phone" data-i18n="form_label_phone">Telefon / WhatsApp</label><input type="tel" id="f-phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="+48 ..."></div>
+      </div>
+      <div class="form-group" style="margin-bottom:16px">
+        <label for="f-occasion" data-i18n="form_label_occasion">Okazja</label>
+        <select id="f-occasion" name="occasion">
+          <option value="" data-i18n="form_opt_choose">Wybierz okazję...</option>
+          <option data-i18n="form_opt_1">Urodziny</option>
+          <option data-i18n="form_opt_2">Wesele</option>
+          <option data-i18n="form_opt_3">Powrót ze szpitala</option>
+          <option data-i18n="form_opt_4">Cupcakes / pudełka</option>
+          <option data-i18n="form_opt_5">Inne</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label for="f-date" data-i18n="form_label_date">Data</label><input type="date" id="f-date" name="date"></div>
+        <div class="form-group"><label for="f-servings" data-i18n="form_label_servings">Porcje</label><input type="number" id="f-servings" name="servings" inputmode="numeric" min="1" data-i18n-ph="form_ph_servings" placeholder="np. 12"></div>
+      </div>
+      <div class="form-group"><label for="f-msg" data-i18n="form_label_message">Wiadomość</label><textarea id="f-msg" name="message" rows="3" data-i18n-ph="form_ph_message" placeholder="Opisz swój wymarzony tort..."></textarea></div>
+      <button type="button" class="form-submit" id="form-submit-btn" onclick="sendForm()" data-i18n="form_submit">Wyślij na WhatsApp</button>
+      <p class="form-fallback-note" id="form-fallback-note" role="alert" style="display:none"></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Podgląd zdjęcia">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Zamknij">&times;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Poprzednie zdjęcie">&#10094;</button>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="">
+  <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Następne zdjęcie">&#10095;</button>
+</div>
+
+<footer>
+  <div class="f-logo">Mari<img src="assets/logo-cream.png" alt="Mari Sweets — logo (trzepaczka)" class="f-logo-icon"><em>Sweets</em></div>
+  <nav class="f-nav">
+    <a href="#about" data-i18n="nav_about">O Marinie</a>
+    <a href="#menu" data-i18n="nav_menu">Menu</a>
+    <a href="#gallery" data-i18n="nav_gallery">Galeria</a>
+    <a href="#reach" data-i18n="nav_reach">Kontakt</a>
+    <a href="https://www.instagram.com/marina.sweets_pl/" target="_blank">Instagram</a>
+  </nav>
+  <div class="f-copy" data-i18n="footer_copy">© 2026 Mari Sweets · Marina · Białystok</div>
+</footer>
+
+<a href="https://wa.me/48000000000" target="_blank" class="sticky-wa" aria-label="WhatsApp" id="sticky-wa" data-tip="Napisz do mnie">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.44 9.9-9.9S17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.34-.5.05-1.14.07-1.83-.11-.42-.11-.96-.3-1.65-.6-2.9-1.25-4.79-4.17-4.94-4.36-.14-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.01-2.41.26-.29.58-.36.77-.36.19 0 .39 0 .55.01.18.01.42-.07.65.5.24.58.82 2 .89 2.14.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.16-.29.36-.42.49-.14.13-.28.28-.12.55.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.19-.28.37-.23.62-.14.26.09 1.63.77 1.9.91.28.14.46.21.53.33.07.12.07.68-.17 1.36z"/></svg>
+</a>
+
+<script>
+/* ===================== I18N ===================== */
+const I18N = {
+  pl:{
+    nav_about:'O Marinie', nav_menu:'Menu', nav_builder:'Skomponuj tort', nav_gallery:'Galeria', nav_reach:'Kontakt',
+    nav_cta:'Zamów', nav_cta_burger:'Zamów na WhatsApp', skip_link:'Przejdź do treści',
+    hero_eyebrow:'Domowa cukiernia · Białystok',
+    hero_h:'Torty,<br>które <em>pamięta się</em><br>dłużej niż święto.',
+    hero_sub:'Marina piecze i składa każdy tort ręcznie — bez gotowych mieszanek i półproduktów. Opowiedz o okazji, a razem dobierzemy smak, nadzienie i dekorację.',
+    hero_btn_primary:'Skomponuj swój tort', hero_btn_outline:'Zobacz realizacje',
+    hero_photo_caption:'Zdjęcie — Marina przy pracy (do podmiany)',
+    hero_badge_t:'Każdy tort — od zera', hero_badge_s:'Świeże wypieki na zamówienie',
+    about_photo1:'Zdjęcie Mariny (portret)', about_photo2:'Zdjęcie gotowego tortu',
+    about_eyebrow:'O cukierni', about_h:'Cześć, jestem <em>Marina.</em>',
+    about_p1:'Piekę torty i desery na zamówienie w Białymstoku. Zaczynałam dla przyjaciół i rodziny jeszcze w Grodnie — dziś co tydzień tworzę torty na urodziny, wesela, powroty ze szpitala i po prostu wtedy, gdy komuś zachce się słodkiego powodu do świętowania.',
+    about_p2:'Pracuję nad jednym zamówieniem na raz — bez taśmy produkcyjnej. To znaczy, że Twój tort dostanie czas i uwagę, a nie szablon z katalogu.',
+    about_fact1_t:'Od zera', about_fact1_l:'biszkopt i krem w dniu zamówienia',
+    about_fact2_t:'Pod okazję', about_fact2_l:'smak i dekorację ustalamy razem',
+    about_fact3_t:'Białystok', about_fact3_l:'odbiór osobisty i dostawa',
+    menu_eyebrow:'Co można zamówić', menu_h:'Słodka <em>mapa</em> Mari Sweets.',
+    menu_note:'Każda kategoria to baza do indywidualnego zamówienia: zmieniamy rozmiar, smak i dekorację pod Twoją okazję.',
+    menu_tag_hit:'Hit',
+    menu_card1_name:'Torty na zamówienie', menu_card1_desc:'Od dziecięcych po ślubne — z owocami, czekoladowym dripem lub w minimalistycznym stylu naked cake.',
+    menu_card2_name:'Cupcakes', menu_card2_desc:'W zestawach na przyjęcie lub na co dzień — dobieramy smak i kolor pod motyw przewodni.',
+    menu_card3_name:'Makaroniki', menu_card3_desc:'Chrupiąca skorupka i delikatne nadzienie — smaki klasyczne i sezonowe.',
+    menu_card4_name:'Rolada bezowa', menu_card4_desc:'Lekka baza bezowa z kremem i owocami — efektowny deser na stół.',
+    menu_card5_name:'Trifle', menu_card5_desc:'Warstwowe desery w słoiczkach — wygodne przy podawaniu większej grupie.',
+    menu_card6_name:'Pudełka prezentowe', menu_card6_desc:'Zestaw słodkości w prezencie — na urodziny, Dzień Kobiet albo bez okazji.',
+    builder_eyebrow:'Interaktywny kreator', builder_h:'Skomponuj <em>tort marzeń</em>',
+    builder_label_servings:'Ile porcji', builder_label_flavor:'Smak biszkoptu i kremu', builder_label_style:'Dekoracja',
+    sum_label_servings:'Porcji', sum_label_flavor:'Smak', sum_label_style:'Dekoracja',
+    builder_cta:'Zapytaj o cenę na WhatsApp',
+    builder_note:'Dokładną cenę i termin ustalamy w rozmowie — zależą od rozmiaru, nadzienia i obłożenia tygodnia.',
+    gallery_eyebrow:'Portfolio', gallery_h:'Ostatnie <em>realizacje.</em>', gallery_link:'Więcej na Instagramie →',
+    steps_h:'Jak <em>zamówić</em>',
+    step1_t:'Napisz', step1_s:'Na WhatsApp lub Instagram Direct — opisz okazję i termin.',
+    step2_t:'Skomponujemy tort', step2_s:'Dobierzemy smak, rozmiar i dekorację — możesz zacząć w kreatorze powyżej.',
+    step3_t:'Potwierdź zamówienie', step3_s:'Ustalimy cenę i termin, wpłacasz zadatek.',
+    step4_t:'Odbierz lub otrzymaj', step4_s:'Odbiór osobisty w Białymstoku lub dostawa — ustalimy przy zamówieniu.',
+    reach_eyebrow:'Kontakt', reach_h:'Omówimy Twój <em>tort?</em>',
+    reach_p:'Napisz na WhatsApp lub Instagram — zwykle odpowiadam w ciągu dnia. Zamówienia przyjmuję minimum 3–5 dni wcześniej, na torty ślubne — od 2 tygodni.',
+    hour1_l:'Przyjmowanie zamówień', hour1_v:'Pon – Ndz',
+    hour2_l:'Odbiór osobisty', hour2_v:'do ustalenia',
+    hour3_l:'Miasto', hour3_v:'Białystok',
+    reach_card_h3:'Napisz bezpośrednio', reach_card_p:'Albo wypełnij formularz — odezwę się z pytaniami o smak i termin.',
+    form_label_name:'Imię', form_ph_name:'Twoje imię',
+    form_label_phone:'Telefon / WhatsApp',
+    form_label_occasion:'Okazja', form_opt_choose:'Wybierz okazję...', form_opt_1:'Urodziny', form_opt_2:'Wesele', form_opt_3:'Powrót ze szpitala', form_opt_4:'Cupcakes / pudełka', form_opt_5:'Inne',
+    form_label_date:'Data', form_label_servings:'Porcje', form_ph_servings:'np. 12',
+    form_label_message:'Wiadomość', form_ph_message:'Opisz swój wymarzony tort...',
+    form_submit:'Wyślij na WhatsApp',
+    form_submit_sending:'Otwieram WhatsApp…',
+    form_popup_blocked:'Przeglądarka zablokowała okno. <a href="#" id="form-fallback-link">Kliknij tutaj, aby otworzyć WhatsApp</a>.',
+    footer_copy:'© 2026 Mari Sweets · Marina · Białystok',
+    wa_tooltip:'Napisz do mnie'
+  },
+  ru:{
+    nav_about:'О Марине', nav_menu:'Меню', nav_builder:'Собрать торт', nav_gallery:'Галерея', nav_reach:'Контакты',
+    nav_cta:'Заказать', nav_cta_burger:'Заказать в WhatsApp', skip_link:'Перейти к содержимому',
+    hero_eyebrow:'Домашняя кондитерская · Белосток',
+    hero_h:'Торты,<br>которые <em>помнят</em><br>дольше праздника.',
+    hero_sub:'Marina печёт и собирает каждый торт вручную — без миксов и полуфабрикатов. Расскажите про повод, и вместе подберём вкус, начинку и декор.',
+    hero_btn_primary:'Собрать свой торт', hero_btn_outline:'Смотреть работы',
+    hero_photo_caption:'Фото — Marina за работой (заменить на реальное)',
+    hero_badge_t:'Каждый торт — с нуля', hero_badge_s:'Свежая выпечка под заказ',
+    about_photo1:'Фото Марины (портрет)', about_photo2:'Фото готового торта',
+    about_eyebrow:'О кондитерской', about_h:'Привет, я <em>Марина.</em>',
+    about_p1:'Пеку торты и десерты на заказ в Белостоке. Начинала для друзей и семьи ещё в Гродно — теперь каждую неделю собираю торты для дней рождений, свадеб, выписок из роддома и просто потому что кто-то захотел сладкого повода.',
+    about_p2:'Работаю по одному заказу за раз — без конвейера. Это значит, что у вашего торта будет время и внимание, а не шаблон из каталога.',
+    about_fact1_t:'С нуля', about_fact1_l:'бисквит и крем в день заказа',
+    about_fact2_t:'Под повод', about_fact2_l:'вкус и декор — вместе с вами',
+    about_fact3_t:'Белосток', about_fact3_l:'самовывоз и доставка',
+    menu_eyebrow:'Что можно заказать', menu_h:'Сладкая <em>карта</em> Mari Sweets.',
+    menu_note:'Каждая категория — база для персонального заказа: меняем размер, вкус и оформление под ваш повод.',
+    menu_tag_hit:'Хит',
+    menu_card1_name:'Торты на заказ', menu_card1_desc:'От детских до свадебных — с ягодами, шоколадным дрипом или в минималистичном naked-стиле.',
+    menu_card2_name:'Капкейки', menu_card2_desc:'Наборами на праздник или на каждый день — подбираем вкус и цвет под тематику.',
+    menu_card3_name:'Макаронс', menu_card3_desc:'Хрустящая скорлупка и нежная начинка — классические и сезонные вкусы.',
+    menu_card4_name:'Меренговый рулет', menu_card4_desc:'Воздушная безе-основа с кремом и ягодами — эффектный десерт на стол.',
+    menu_card5_name:'Трайфлы', menu_card5_desc:'Слоёные десерты в стаканах — удобно подавать большой компании.',
+    menu_card6_name:'Подарочные боксы', menu_card6_desc:'Набор сладостей в подарок — на день рождения, 8 марта, просто без повода.',
+    builder_eyebrow:'Живой конструктор', builder_h:'Собери <em>торт мечты</em>',
+    builder_label_servings:'Сколько порций', builder_label_flavor:'Вкус бисквита и крема', builder_label_style:'Оформление',
+    sum_label_servings:'Порций', sum_label_flavor:'Вкус', sum_label_style:'Оформление',
+    builder_cta:'Узнать цену в WhatsApp',
+    builder_note:'Точную стоимость и дату присылаем в переписке — она зависит от размера, начинки и загруженности недели.',
+    gallery_eyebrow:'Портфолио', gallery_h:'Последние <em>работы.</em>', gallery_link:'Больше в Instagram →',
+    steps_h:'Как <em>заказать</em>',
+    step1_t:'Напишите', step1_s:'В WhatsApp или Instagram Direct — опишите повод и дату.',
+    step2_t:'Соберём торт', step2_s:'Подберём вкус, размер и оформление — можно начать в конструкторе выше.',
+    step3_t:'Подтвердите заказ', step3_s:'Согласуем цену и дату, вносите предоплату.',
+    step4_t:'Заберите или получите', step4_s:'Самовывоз в Белостоке или доставка — обсудим при заказе.',
+    reach_eyebrow:'Контакты', reach_h:'Обсудим ваш <em>торт?</em>',
+    reach_p:'Пишите в WhatsApp или Instagram — обычно отвечаю в течение дня. Заказы принимаю минимум за 3–5 дней, на свадебные торты — от 2 недель.',
+    hour1_l:'Приём заказов', hour1_v:'Пн – Вс',
+    hour2_l:'Самовывоз', hour2_v:'по договорённости',
+    hour3_l:'Город', hour3_v:'Белосток',
+    reach_card_h3:'Написать напрямую', reach_card_p:'Или заполните форму — вернусь с вопросами по вкусу и дате.',
+    form_label_name:'Имя', form_ph_name:'Ваше имя',
+    form_label_phone:'Телефон / WhatsApp',
+    form_label_occasion:'Повод', form_opt_choose:'Выберите повод...', form_opt_1:'День рождения', form_opt_2:'Свадьба', form_opt_3:'Выписка из роддома', form_opt_4:'Капкейки / боксы', form_opt_5:'Другое',
+    form_label_date:'Дата', form_label_servings:'Порций', form_ph_servings:'напр. 12',
+    form_label_message:'Сообщение', form_ph_message:'Опишите ваш торт мечты...',
+    form_submit:'Отправить в WhatsApp',
+    form_submit_sending:'Открываю WhatsApp…',
+    form_popup_blocked:'Браузер заблокировал окно. <a href="#" id="form-fallback-link">Нажмите здесь, чтобы открыть WhatsApp</a>.',
+    footer_copy:'© 2026 Mari Sweets · Marina · Белосток',
+    wa_tooltip:'Написать мне'
+  }
+};
+
+let lang = localStorage.getItem('marisweets_lang') || 'pl';
+
+function applyI18n(){
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.dataset.i18n;
+    if(I18N[lang][key]!==undefined) el.innerHTML = I18N[lang][key];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
+    const key = el.dataset.i18nPh;
+    if(I18N[lang][key]!==undefined) el.placeholder = I18N[lang][key];
+  });
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active', b.dataset.setlang===lang));
+  document.getElementById('sticky-wa').setAttribute('data-tip', I18N[lang].wa_tooltip);
+  renderMarquee();
+  renderSwatches();
+  renderStyles();
+  renderSummary();
+  updateWA();
+  staggerHeroReveal();
+}
+
+/* ===================== HERO STAGGER REVEAL ===================== */
+function staggerHeroReveal(){
+  const h = document.querySelector('.hero-h');
+  if(!h) return;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const lines = h.innerHTML.split('<br>');
+  h.innerHTML = lines.map((line, i)=>
+    reduce ? line : `<span class="reveal-line" style="animation-delay:${(i*0.14+0.15).toFixed(2)}s">${line}</span>`
+  ).join('<br>');
+}
+function setLang(l){
+  lang = l;
+  localStorage.setItem('marisweets_lang', l);
+  applyI18n();
+}
+
+/* ===================== MARQUEE ===================== */
+const marqueeKeys = ['menu_card1_name','menu_card2_name','menu_card3_name','menu_card4_name','menu_card5_name','menu_card6_name'];
+function renderMarquee(){
+  const items = marqueeKeys.map(k=>`<span class="marquee-item">${I18N[lang][k]}</span><span class="marquee-item marquee-dot">✦</span>`).join('');
+  document.getElementById('marquee-track').innerHTML = items + items;
+}
+
+/* ===================== BUILDER ===================== */
+const flavors = [
+  {pl:'Wanilia i truskawka', ru:'Ваниль и клубника'},
+  {pl:'Czekolada i wiśnia', ru:'Шоколад и вишня'},
+  {pl:'Miodownik', ru:'Медовик'},
+  {pl:'Pistacja i malina', ru:'Фисташка и малина'},
+  {pl:'Red velvet', ru:'Красный бархат'},
+  {pl:'Marchewkowy', ru:'Морковный'}
+];
+const styles = [
+  {pl:'Owoce i kwiaty', ru:'Ягоды и цветы', spl:'świeże owoce, eustomy', sru:'свежие ягоды, эустомы', color:'berry'},
+  {pl:'Czekoladowy drip', ru:'Шоколадный дрип', spl:'polewa, bezy, czekolada', sru:'потёки, безе, шоколад', color:'cocoa'},
+  {pl:'Naked cake', ru:'Naked cake', spl:'minimum kremu, maksimum tekstury', sru:'минимум крема, максимум текстуры', color:'naked'},
+  {pl:'Bezy i pianki', ru:'Меренги и безе', spl:'lekko i delikatnie', sru:'воздушно и нежно', color:'soft'}
+];
+let servings = 10, flavorIdx = 0, styleIdx = 0;
+
+function renderSwatches(){
+  const wrap = document.getElementById('flavor-swatches');
+  wrap.innerHTML = flavors.map((f,i)=>`<button class="swatch${i===flavorIdx?' active':''}" data-idx="${i}">${f[lang]}</button>`).join('');
+  wrap.querySelectorAll('.swatch').forEach(btn=>btn.addEventListener('click', ()=>{
+    flavorIdx = +btn.dataset.idx;
+    wrap.querySelectorAll('.swatch').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    renderSummary(); updateWA();
+  }));
+}
+function renderStyles(){
+  const wrap = document.getElementById('style-options');
+  wrap.innerHTML = styles.map((s,i)=>`<div class="style-opt${i===styleIdx?' active':''}" data-idx="${i}"><div class="style-opt-t">${s[lang]}</div><div class="style-opt-s">${lang==='pl'?s.spl:s.sru}</div></div>`).join('');
+  wrap.querySelectorAll('.style-opt').forEach(opt=>opt.addEventListener('click', ()=>{
+    styleIdx = +opt.dataset.idx;
+    wrap.querySelectorAll('.style-opt').forEach(o=>o.classList.remove('active'));
+    opt.classList.add('active');
+    renderSummary(); paintCake(); updateWA();
+  }));
+}
+function renderSummary(){
+  document.getElementById('sum-servings').textContent = servings;
+  document.getElementById('sum-flavor').textContent = flavors[flavorIdx][lang];
+  document.getElementById('sum-style').textContent = styles[styleIdx][lang];
+}
+function changeServings(delta){
+  servings = Math.max(6, Math.min(40, servings+delta));
+  document.getElementById('servings-val').textContent = servings;
+  renderSummary();
+  scaleCake();
+  updateWA();
+}
+const cakePalette = {
+  berry:{ body:['#F3C9D2','#FBF2EA','#F3C9D2'], top:['#FBF2EA','#F3C9D2','#FBF2EA'] },
+  cocoa:{ body:['#3C2A22','#5A4238','#3C2A22'], top:['#5A4238','#6B5245','#5A4238'] },
+  naked:{ body:['#E8CBA0','#E8CBA0','#E8CBA0'], top:['#FFF8F0','#FFF8F0','#FFF8F0'] },
+  soft:{ body:['#FFF8F0','#F3C9D2','#FFF8F0'], top:['#F3C9D2','#FFF8F0','#F3C9D2'] }
+};
+const CAKE_TOPPINGS = {
+  berry: `
+    <ellipse cx="88" cy="34" rx="7" ry="3" fill="#93A87E" transform="rotate(-25 88 34)"/>
+    <ellipse cx="112" cy="33" rx="7" ry="3" fill="#7C9469" transform="rotate(20 112 33)"/>
+    <circle cx="84" cy="40" r="6" fill="#A63A52"/><circle cx="82.2" cy="38" r="1.6" fill="#fff" opacity=".5"/>
+    <circle cx="100" cy="34" r="6.5" fill="#C24A66"/><circle cx="98" cy="31.7" r="1.7" fill="#fff" opacity=".5"/>
+    <circle cx="116" cy="40" r="6" fill="#A63A52"/><circle cx="114.2" cy="38" r="1.6" fill="#fff" opacity=".5"/>
+    <g transform="translate(100,44)">
+      <ellipse cx="0" cy="-4" rx="2.4" ry="1.6" fill="#F3C9D2"/>
+      <ellipse cx="3.4" cy="-1.2" rx="2.4" ry="1.6" fill="#F3C9D2" transform="rotate(72 3.4 -1.2)"/>
+      <ellipse cx="2.1" cy="3.2" rx="2.4" ry="1.6" fill="#F3C9D2" transform="rotate(144 2.1 3.2)"/>
+      <ellipse cx="-2.1" cy="3.2" rx="2.4" ry="1.6" fill="#F3C9D2" transform="rotate(216 -2.1 3.2)"/>
+      <ellipse cx="-3.4" cy="-1.2" rx="2.4" ry="1.6" fill="#F3C9D2" transform="rotate(288 -3.4 -1.2)"/>
+      <circle cx="0" cy="0" r="1.6" fill="#E7A8B8"/>
+    </g>`,
+  cocoa: `
+    <ellipse cx="100" cy="45" rx="28" ry="5.5" fill="#2A1D17"/>
+    <ellipse cx="92" cy="43.5" rx="10" ry="2" fill="#5A4238" opacity=".6"/>
+    <path d="M74,47 Q73,55 75,60 Q77,63 79,60 Q81,54 78,47 Z" fill="#2A1D17"/>
+    <path d="M88,48 Q87,58 89,64 Q91,67 93,64 Q95,56 92,48 Z" fill="#2A1D17"/>
+    <path d="M104,48 Q103,54 105,58 Q107,60 109,58 Q111,53 108,48 Z" fill="#2A1D17"/>
+    <path d="M120,47 Q119,53 121,57 Q123,60 125,57 Q127,52 124,47 Z" fill="#2A1D17"/>
+    <path d="M76,50 L76,55" stroke="#fff" stroke-width=".8" opacity=".25" stroke-linecap="round"/>
+    <path d="M90,50 L90,58" stroke="#fff" stroke-width=".8" opacity=".25" stroke-linecap="round"/>`,
+  naked: `
+    <path d="M85,40 C80,32 78,26 82,20" stroke="#7C9469" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    <ellipse cx="81" cy="24" rx="3.2" ry="1.8" fill="#93A87E" transform="rotate(-40 81 24)"/>
+    <ellipse cx="79" cy="30" rx="3" ry="1.6" fill="#7C9469" transform="rotate(-15 79 30)"/>
+    <path d="M114,40 C119,31 122,25 119,19" stroke="#7C9469" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    <ellipse cx="120" cy="23" rx="3.2" ry="1.8" fill="#93A87E" transform="rotate(35 120 23)"/>
+    <ellipse cx="122" cy="29" rx="3" ry="1.6" fill="#7C9469" transform="rotate(15 122 29)"/>
+    <g transform="translate(100,30)">
+      <ellipse cx="0" cy="-5" rx="3" ry="2" fill="#EABCC7"/>
+      <ellipse cx="4.3" cy="-1.5" rx="3" ry="2" fill="#EABCC7" transform="rotate(72 4.3 -1.5)"/>
+      <ellipse cx="2.6" cy="4" rx="3" ry="2" fill="#EABCC7" transform="rotate(144 2.6 4)"/>
+      <ellipse cx="-2.6" cy="4" rx="3" ry="2" fill="#EABCC7" transform="rotate(216 -2.6 4)"/>
+      <ellipse cx="-4.3" cy="-1.5" rx="3" ry="2" fill="#EABCC7" transform="rotate(288 -4.3 -1.5)"/>
+      <circle cx="0" cy="0" r="2" fill="#C24A66"/>
+    </g>`,
+  soft: `
+    <ellipse cx="84" cy="41.5" rx="6.5" ry="2" fill="#7C2A3F" opacity=".12"/>
+    <ellipse cx="100" cy="39.5" rx="7" ry="2" fill="#7C2A3F" opacity=".12"/>
+    <ellipse cx="116" cy="41.5" rx="6.5" ry="2" fill="#7C2A3F" opacity=".12"/>
+    <path d="M84,42 C84,36 79,32 79,27 C79,24 82,22 84,24 C86,22 89,24 89,27 C89,32 84,36 84,42 Z" fill="url(#meringueShade)" stroke="#B8875A" stroke-width="1.8"/>
+    <path d="M100,40 C100,33 94,29 94,23 C94,20 97,18 100,20 C103,18 106,20 106,23 C106,29 100,33 100,40 Z" fill="url(#meringueShade)" stroke="#B8875A" stroke-width="1.8"/>
+    <path d="M116,42 C116,36 111,32 111,27 C111,24 114,22 116,24 C118,22 121,24 121,27 C121,32 116,36 116,42 Z" fill="url(#meringueShade)" stroke="#B8875A" stroke-width="1.8"/>
+    <path d="M86,39 C88,35 88,31 86,27 C89,30 90,35 88,40 Z" fill="#E8D5C8" opacity=".7"/>
+    <path d="M102,37 C104,32 104,27 102,23 C105,26 106,32 104,38 Z" fill="#E8D5C8" opacity=".7"/>
+    <path d="M118,39 C120,35 120,31 118,27 C121,30 122,35 120,40 Z" fill="#E8D5C8" opacity=".7"/>
+    <ellipse cx="82" cy="30" rx="1.8" ry="3" fill="#fff" opacity=".85"/>
+    <ellipse cx="98" cy="26" rx="1.8" ry="3.4" fill="#fff" opacity=".85"/>
+    <ellipse cx="114" cy="30" rx="1.8" ry="3" fill="#fff" opacity=".85"/>`
+};
+function paintCake(){
+  const key = styles[styleIdx].color;
+  const p = cakePalette[key];
+  const isNaked = key === 'naked';
+  for(let i=1;i<=3;i++){
+    document.getElementById('tier'+i).setAttribute('fill', p.body[i-1]);
+    document.getElementById('tier'+i+'-top').setAttribute('fill', p.top[i-1]);
+    document.getElementById('tier'+i+'-crumb').style.opacity = isNaked ? '1' : '0';
+  }
+  document.getElementById('topping').innerHTML = CAKE_TOPPINGS[key];
+}
+function scaleCake(){
+  const s = Math.min(1.18, 0.86 + servings/100);
+  document.getElementById('cake-svg').style.transform = 'scale('+s+')';
+}
+function updateWA(){
+  const text = lang==='pl'
+    ? `Dzień dobry! Chciałabym zamówić tort: ${flavors[flavorIdx].pl}, dekoracja "${styles[styleIdx].pl}", na ${servings} porcji. Proszę o wycenę i dostępne terminy.`
+    : `Здравствуйте! Хочу заказать торт: ${flavors[flavorIdx].ru}, оформление «${styles[styleIdx].ru}», на ${servings} порций. Подскажите, пожалуйста, цену и возможные даты.`;
+  document.getElementById('builder-cta').href = 'https://wa.me/48000000000?text='+encodeURIComponent(text);
+}
+
+/* ===================== GALLERY (плейсхолдеры) ===================== */
+/* ===================== MAGNETIC BUTTONS ===================== */
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!reduceMotion){
+  document.querySelectorAll('.btn-primary, .btn-outline, .nav-cta').forEach(btn=>{
+    btn.addEventListener('mousemove', (e)=>{
+      const r = btn.getBoundingClientRect();
+      const x = (e.clientX - r.left - r.width/2) * 0.25;
+      const y = (e.clientY - r.top - r.height/2) * 0.35;
+      btn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+    btn.addEventListener('mouseleave', ()=>{ btn.style.transform = ''; });
+  });
+}
+
+/* ===================== SCROLL PROGRESS ===================== */
+(function(){
+  const bar = document.getElementById('scroll-progress');
+  if(!bar) return;
+  let ticking = false;
+  function update(){
+    const h = document.documentElement;
+    const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight) * 100;
+    bar.style.width = scrolled + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', ()=>{
+    if(!ticking){ requestAnimationFrame(update); ticking = true; }
+  }, { passive: true });
+  update();
+})();
+
+/* ===================== PARALLAX (hero/about photos) ===================== */
+if(!reduceMotion){
+  const parallaxEls = document.querySelectorAll('.hero-photo .ph, .about-imgs .ph');
+  let ticking = false;
+  function updateParallax(){
+    const vh = window.innerHeight;
+    parallaxEls.forEach(el=>{
+      const r = el.getBoundingClientRect();
+      const center = r.top + r.height/2;
+      const offset = ((center - vh/2) / vh) * 18; // small, clamped-ish range
+      el.style.backgroundPosition = `50% ${50 + offset}%`;
+    });
+    ticking = false;
+  }
+  window.addEventListener('scroll', ()=>{
+    if(!ticking){ requestAnimationFrame(updateParallax); ticking = true; }
+  }, { passive: true });
+  updateParallax();
+}
+
+/* ===================== 3D TILT (menu cards) ===================== */
+if(!reduceMotion && !window.matchMedia('(hover: none)').matches){
+  document.querySelectorAll('.mc').forEach(card=>{
+    card.addEventListener('mousemove', (e)=>{
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - 0.5;
+      const py = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform = `perspective(800px) rotateX(${(-py*8).toFixed(2)}deg) rotateY(${(px*8).toFixed(2)}deg) translateY(-6px)`;
+    });
+    card.addEventListener('mouseleave', ()=>{ card.style.transform = ''; });
+  });
+}
+
+/* ===================== GALLERY LIGHTBOX ===================== */
+(function(){
+  const galImgs = [...document.querySelectorAll('.gal-grid img')];
+  if(!galImgs.length) return;
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  let current = 0;
+
+  function show(i){
+    current = (i + galImgs.length) % galImgs.length;
+    const src = galImgs[current].currentSrc || galImgs[current].src;
+    lightboxImg.src = src;
+    lightboxImg.alt = galImgs[current].alt;
+  }
+  function open(i){
+    show(i);
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close(){
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  galImgs.forEach((img, i) => {
+    img.closest('.gi').addEventListener('click', () => open(i));
+  });
+  document.getElementById('lightbox-close').addEventListener('click', close);
+  document.getElementById('lightbox-prev').addEventListener('click', (e) => { e.stopPropagation(); show(current - 1); });
+  document.getElementById('lightbox-next').addEventListener('click', (e) => { e.stopPropagation(); show(current + 1); });
+  lightbox.addEventListener('click', (e) => { if(e.target === lightbox) close(); });
+  document.addEventListener('keydown', (e) => {
+    if(!lightbox.classList.contains('open')) return;
+    if(e.key === 'Escape') close();
+    if(e.key === 'ArrowLeft') show(current - 1);
+    if(e.key === 'ArrowRight') show(current + 1);
+  });
+})();
+
+/* ===================== MISC ===================== */
+function toggleBurger(){
+  const m=document.getElementById('burger-menu');
+  const i=document.getElementById('burger-icon');
+  if(!m) return;
+  const open = m.style.display==='flex';
+  m.style.display = open?'none':'flex';
+  i.innerHTML = open
+    ? '<path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>'
+    : '<path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>';
+}
+function closeBurger(){
+  const m=document.getElementById('burger-menu');
+  if(m) m.style.display='none';
+}
+function sendForm(){
+  const name = document.getElementById('f-name').value || '—';
+  const phone = document.getElementById('f-phone').value || '—';
+  const occasion = document.getElementById('f-occasion').value || '—';
+  const date = document.getElementById('f-date').value || '—';
+  const serv = document.getElementById('f-servings').value || '—';
+  const msg = document.getElementById('f-msg').value || '—';
+  const text = lang==='pl'
+    ? `Dzień dobry! Nazywam się ${name} (${phone}).\nOkazja: ${occasion}\nData: ${date}\nPorcje: ${serv}\n${msg}`
+    : `Здравствуйте! Меня зовут ${name} (${phone}).\nПовод: ${occasion}\nДата: ${date}\nПорций: ${serv}\n${msg}`;
+  const url = 'https://wa.me/48000000000?text='+encodeURIComponent(text);
+
+  const btn = document.getElementById('form-submit-btn');
+  const note = document.getElementById('form-fallback-note');
+  note.style.display = 'none';
+  const originalLabel = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = I18N[lang].form_submit_sending;
+
+  const win = window.open(url, '_blank');
+
+  setTimeout(()=>{
+    btn.disabled = false;
+    btn.textContent = originalLabel;
+    if(!win || win.closed){
+      note.innerHTML = I18N[lang].form_popup_blocked;
+      note.style.display = 'block';
+      document.getElementById('form-fallback-link').addEventListener('click', (e)=>{
+        e.preventDefault();
+        window.location.href = url;
+      });
+    }
+  }, 400);
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.r').forEach(el=>observer.observe(el));
+
+applyI18n();
+scaleCake();
+</script>
+</body>
+</html>
